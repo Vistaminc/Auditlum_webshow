@@ -25,6 +25,17 @@ interface ScanStatus {
   scan_type: string[]
 }
 
+// 添加静态参数生成函数
+export function generateStaticParams() {
+  // 为了静态导出，我们需要提供所有可能的项目 ID
+  // 这里我们提供一些示例 ID
+  return [
+    { id: 'demo-1' },
+    { id: 'demo-2' },
+    { id: 'demo-3' },
+  ]
+}
+
 export default function ScanPage({ params }: { params: { id: string } }) {
   const router = useRouter()
   const projectId = params.id
@@ -165,7 +176,7 @@ export default function ScanPage({ params }: { params: { id: string } }) {
     }
   }
 
-  // u83b7u53d6u72b6u6001u663eu793au6587u672c
+  // u83b7u53d6u72b6u6001u663eu793a
   const getStatusText = (status: string) => {
     switch (status) {
       case 'queued':

@@ -35,6 +35,16 @@ interface ScanHistory {
   }
 }
 
+// 添加静态参数生成函数
+export function generateStaticParams() {
+  // 为了静态导出，我们需要提供所有可能的项目 ID
+  return [
+    { id: 'demo-1' },
+    { id: 'demo-2' },
+    { id: 'demo-3' },
+  ]
+}
+
 export default function ProjectDetailsPage({ params }: { params: { id: string } }) {
   const router = useRouter()
   const [project, setProject] = useState<ProjectDetails | null>(null)
